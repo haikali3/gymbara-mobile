@@ -4,23 +4,19 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Screen from "~/app/(tabs)/index"; // or wherever your index.tsx is
 import { View, Text } from "react-native";
-import { Home, User } from "lucide-react-native";
+import { Atom, Home, User } from "lucide-react-native";
+import { Button } from "../ui/button";
+import { Link, Tabs } from "expo-router";
+import TabTwoScreen from "~/app/(tabs)/tab-two";
+import { ThemeToggle } from "~/components/ThemeToggle";
 
 const Tab = createBottomTabNavigator();
-
-function DummyProfileScreen() {
-  return (
-    <View className="flex-1 items-center justify-center">
-      <Text className="text-xl font-bold">Profile</Text>
-    </View>
-  );
-}
 
 export default function BottomTabs() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        headerShown: false,
+        headerShown: true,
         tabBarShowLabel: false,
         tabBarStyle: {
           height: 70,
@@ -40,8 +36,29 @@ export default function BottomTabs() {
         },
       })}
     >
-      <Tab.Screen name="Home" component={Screen} />
-      <Tab.Screen name="Profile" component={DummyProfileScreen} />
+      <Tab.Screen
+        name="Home"
+        component={Screen}
+        options={{ title: "Home", headerRight: () => <ThemeToggle /> }}
+      />
+      {/* <Tabs.Screen
+        name="index"
+        options={{
+          title: "Tab One",
+          tabBarIcon: ({ color }) => <Atom color={color as any} />,
+          headerRight: () => (
+            // <Link href="/modal" asChild>
+            <Link href="/" asChild>
+              <Button>Hello!</Button>
+            </Link>
+          ),
+        }}
+      /> */}
+      <Tab.Screen
+        name="Profile"
+        component={TabTwoScreen}
+        options={{ title: "Profile", headerRight: () => <ThemeToggle /> }}
+      />
       {/* <Tab.Screen name="Workout" component={WorkoutScreen} /> */}
     </Tab.Navigator>
   );
