@@ -1,15 +1,18 @@
 import { Tabs } from "expo-router";
 import { Home, User } from "lucide-react-native";
+import { useTheme } from "@react-navigation/native";
 import { ThemeToggle } from "~/components/ThemeToggle";
 
 export default function TabsLayout() {
+  const { colors } = useTheme();
+
   return (
     <Tabs
       screenOptions={{
         tabBarShowLabel: false,
         tabBarStyle: {
           height: 70,
-          backgroundColor: "#fff",
+          backgroundColor: colors.card,
           borderTopWidth: 0,
         },
         headerRight: () => <ThemeToggle />,
@@ -20,7 +23,7 @@ export default function TabsLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ focused }) => (
-            <Home color={focused ? "#0ea5e9" : "#a1a1aa"} size={24} />
+            <Home color={focused ? colors.primary : colors.text} size={24} />
           ),
         }}
       />
@@ -29,7 +32,7 @@ export default function TabsLayout() {
         options={{
           title: "Profile",
           tabBarIcon: ({ focused }) => (
-            <User color={focused ? "#0ea5e9" : "#a1a1aa"} size={24} />
+            <User color={focused ? colors.primary : colors.text} size={24} />
           ),
         }}
       />
