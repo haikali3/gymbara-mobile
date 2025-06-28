@@ -42,6 +42,7 @@ export default function BottomTabs() {
     >
       <Tab.Screen name="Home" component={Screen} />
       <Tab.Screen name="Profile" component={DummyProfileScreen} />
+      {/* <Tab.Screen name="Workout" component={WorkoutScreen} /> */}
     </Tab.Navigator>
   );
 }
