@@ -17,3 +17,12 @@ alwaysApply: true
 - Use `(tabs)` for tab navigation and `(stack)` for stack navigation
 - Import navigation hooks from `expo-router`: `useRouter`, `useLocalSearchParams`, `useSegments`
 - Use `<Link>` component for navigation instead of programmatic navigation when possible
+
+### Component Structure
+- Use functional components with TypeScript
+- Define props interfaces clearly
+- Use React hooks (useState, useEffect, etc.) appropriately
+- Implement proper error boundaries for production apps
+- Avoid space-y-*, space-x-* (don't work reliably in React Native)
+
+

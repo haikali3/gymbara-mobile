@@ -3,15 +3,6 @@ description:
 globs: 
 alwaysApply: false
 ---
-# React Native + Expo Router + NativeWind + React Native Reusables
-
-## Tech Stack
-- **React Native** with Expo
-- **Expo Router** for file-based routing
-- **NativeWind** for Tailwind CSS styling
-- **React Native Reusables** for UI components
-
-
 ### NativeWind
 - Use Tailwind classes with the `className` prop
 - Prefer NativeWind classes over StyleSheet.create when possible
