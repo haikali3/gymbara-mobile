@@ -1,0 +1,75 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# React Native + Expo Router + NativeWind + React Native Reusables
+
+## Tech Stack
+- **React Native** with Expo
+- **Expo Router** for file-based routing
+- **NativeWind** for Tailwind CSS styling
+- **React Native Reusables** for UI components
+- **TypeScript** for type safety
+
+## Project Structure
+- `app/` - Expo Router pages and layouts
+- `components/` - Reusable components
+- `components/ui/` - React Native Reusables UI components
+- `lib/` - Utilities, constants, and custom hooks
+
+## Coding Guidelines
+
+### Expo Router
+- Use file-based routing in the `app/` directory
+- Create `_layout.tsx` files for nested layouts
+- Use `(tabs)` for tab navigation and `(stack)` for stack navigation
+- Import navigation hooks from `expo-router`: `useRouter`, `useLocalSearchParams`, `useSegments`
+- Use `<Link>` component for navigation instead of programmatic navigation when possible
+
+### NativeWind
+- Use Tailwind classes with the `className` prop
+- Prefer NativeWind classes over StyleSheet.create when possible
+- Use responsive design with NativeWind breakpoints
+- Combine with `cn()` utility for conditional classes
+- Example: `className={cn("flex-1 bg-background", isActive && "bg-primary")}`
+
+### React Native Reusables
+- Import UI components from `~/components/ui/`
+- Follow the established component patterns in the ui/ directory
+- Use consistent theming with the existing color scheme
+- Leverage the built-in variant system for component styling
+
+### Component Structure
+- Use functional components with TypeScript
+- Define props interfaces clearly
+- Use React hooks (useState, useEffect, etc.) appropriately
+- Implement proper error boundaries for production apps
+
+### Styling Best Practices
+- Use NativeWind classes for styling
+- Implement dark/light theme support using the existing color scheme
+- Use semantic color names (bg-background, text-foreground, etc.)
+- Maintain consistency with the existing design system
+
+### File Naming
+- Use PascalCase for component files (e.g., `UserProfile.tsx`)
+- Use camelCase for utility files (e.g., `useColorScheme.tsx`)
+- Use kebab-case for page files when needed (e.g., `tab-two.tsx`)
+
+### Import Structure
+- Group imports: React/React Native first, then third-party, then local
+- Use relative imports for local components: `~/components/ui/button`
+- Use TypeScript path mapping when configured
+
+### Performance
+- Use React.memo for components that don't need frequent re-renders
+- Implement proper key props for list items
+- Use lazy loading for heavy components when appropriate
+- Optimize images with appropriate sizing and formats
+
+### Testing
+- Write unit tests for utility functions
+- Test component rendering and user interactions
+- Use React Native Testing Library for component tests
+- Test navigation flows with Expo Router 
