@@ -1,0 +1,28 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## Project Structure
+- `app/` - Expo Router pages and layouts
+- `components/` - Reusable components
+- `components/ui/` - React Native Reusables UI components
+- `lib/` - Utilities, constants, and custom hooks
+
+## Coding Guidelines
+
+### Expo Router
+- Use file-based routing in the `app/` directory
+- Create `_layout.tsx` files for nested layouts
+- Use `(tabs)` for tab navigation and `(stack)` for stack navigation
+- Import navigation hooks from `expo-router`: `useRouter`, `useLocalSearchParams`, `useSegments`
+- Use `<Link>` component for navigation instead of programmatic navigation when possible
+
+### Component Structure
+- Use functional components with TypeScript
+- Define props interfaces clearly
+- Use React hooks (useState, useEffect, etc.) appropriately
+- Implement proper error boundaries for production apps
+- Avoid space-y-*, space-x-* (don't work reliably in React Native)
+
+

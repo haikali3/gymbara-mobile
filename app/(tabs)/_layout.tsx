@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { Home, User } from "lucide-react-native";
+import { Home, User, Dumbbell } from "lucide-react-native";
 import { useTheme } from "@react-navigation/native";
 import { ThemeToggle } from "~/components/ThemeToggle";
 
@@ -25,6 +25,25 @@ export default function TabsLayout() {
           tabBarIcon: ({ focused }) => (
             <Home color={focused ? colors.primary : colors.text} size={24} />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="workout"
+        options={{
+          title: "Workout",
+          tabBarIcon: ({ focused }) => (
+            <Dumbbell
+              color={focused ? colors.primary : colors.text}
+              size={24}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="workout-plans"
+        options={{
+          title: "Workout Plans",
+          href: null, // Hide from tab bar
         }}
       />
       <Tabs.Screen

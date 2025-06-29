@@ -1,0 +1,45 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+### NativeWind
+- Use Tailwind classes with the `className` prop
+- Prefer NativeWind classes over StyleSheet.create when possible
+- Use responsive design with NativeWind breakpoints
+- Combine with `cn()` utility for conditional classes
+- Example: `className={cn("flex-1 bg-background", isActive && "bg-primary")}`
+
+### React Native Reusables
+- Import UI components from `~/components/ui/`
+- Follow the established component patterns in the ui/ directory
+- Use consistent theming with the existing color scheme
+- Leverage the built-in variant system for component styling
+
+### Component Structure
+- Use functional components with TypeScript
+- Define props interfaces clearly
+- Use React hooks (useState, useEffect, etc.) appropriately
+- Implement proper error boundaries for production apps
+
+### Styling Best Practices
+- Use NativeWind classes for styling
+- Implement dark/light theme support using the existing color scheme
+- Use semantic color names (bg-background, text-foreground, etc.)
+- Maintain consistency with the existing design system
+
+### File Naming
+- Use PascalCase for component files (e.g., `UserProfile.tsx`)
+- Use camelCase for utility files (e.g., `useColorScheme.tsx`)
+- Use kebab-case for page files when needed (e.g., `tab-two.tsx`)
+
+### Import Structure
+- Group imports: React/React Native first, then third-party, then local
+- Use relative imports for local components: `~/components/ui/button`
+- Use TypeScript path mapping when configured
+
+### Color Management
+- Always use lib/constants.ts for color definitions - All colors should be defined in the NAV_THEME object in constants.ts
+- Never hardcode colors directly in components - Use theme-aware color references instead
+- Use semantic color classes - Prefer NativeWind classes like text-primary, bg-background, text-foreground over direct color values
+- Reference colors through theme system - Use useTheme() from @react-navigation/native to access colors programmatically
