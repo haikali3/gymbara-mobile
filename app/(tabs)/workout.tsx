@@ -1,99 +1,190 @@
 import * as React from "react";
 import { View, ScrollView } from "react-native";
-import { Target, Clock, TrendingUp, Play } from "lucide-react-native";
+import {
+  Target,
+  Clock,
+  TrendingUp,
+  Play,
+  Calendar,
+  Trophy,
+} from "lucide-react-native";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Text } from "~/components/ui/text";
 import { Button } from "~/components/ui/button";
 import { router } from "expo-router";
+import { useTheme } from "@react-navigation/native";
 
 export default function WorkoutScreen() {
+  const { colors } = useTheme();
+
   return (
     <ScrollView className="flex-1 bg-background">
-      <View className="p-4 space-y-6">
+      <View className="p-6 space-y-8">
+        {/* Welcome Header */}
+        <View className="space-y-2">
+          <Text className="text-3xl font-bold text-foreground">
+            Ready to Train?
+          </Text>
+          <Text className="text-base text-muted-foreground">
+            Let's crush today's workout together
+          </Text>
+        </View>
+
         {/* Stats Section */}
-        <View className="flex-row justify-between space-x-3">
-          <Card className="flex-1 p-4 bg-card">
-            <CardContent className="items-center space-y-2 p-0">
-              <Target size={24} className="text-blue-500" />
-              <Text className="text-2xl font-bold text-foreground">7</Text>
-              <Text className="text-sm text-muted-foreground">Day Streak</Text>
-            </CardContent>
-          </Card>
+        <View className="space-y-4">
+          <Text className="text-xl font-semibold text-foreground">
+            Your Progress
+          </Text>
 
-          <Card className="flex-1 p-4 bg-card">
-            <CardContent className="items-center space-y-2 p-0">
-              <Clock size={24} className="text-green-500" />
-              <Text className="text-2xl font-bold text-foreground">45</Text>
-              <Text className="text-sm text-muted-foreground">Min Total</Text>
-            </CardContent>
-          </Card>
+          <View className="flex-row justify-between space-x-4">
+            <Card className="flex-1 bg-card border-border shadow-sm">
+              <CardContent className="items-center space-y-3 p-4">
+                <View className="w-12 h-12 rounded-full bg-primary/10 items-center justify-center">
+                  <Target size={24} color={colors.primary} />
+                </View>
+                <View className="items-center space-y-1">
+                  <Text className="text-2xl font-bold text-foreground">7</Text>
+                  <Text className="text-xs text-muted-foreground text-center">
+                    Day Streak
+                  </Text>
+                </View>
+              </CardContent>
+            </Card>
 
-          <Card className="flex-1 p-4 bg-card">
-            <CardContent className="items-center space-y-2 p-0">
-              <TrendingUp size={24} className="text-orange-500" />
-              <Text className="text-2xl font-bold text-foreground">12</Text>
-              <Text className="text-sm text-muted-foreground">Workouts</Text>
-            </CardContent>
-          </Card>
+            <Card className="flex-1 bg-card border-border shadow-sm">
+              <CardContent className="items-center space-y-3 p-4">
+                <View className="w-12 h-12 rounded-full bg-primary/10 items-center justify-center">
+                  <Clock size={24} color={colors.primary} />
+                </View>
+                <View className="items-center space-y-1">
+                  <Text className="text-2xl font-bold text-foreground">45</Text>
+                  <Text className="text-xs text-muted-foreground text-center">
+                    Min Total
+                  </Text>
+                </View>
+              </CardContent>
+            </Card>
+
+            <Card className="flex-1 bg-card border-border shadow-sm">
+              <CardContent className="items-center space-y-3 p-4">
+                <View className="w-12 h-12 rounded-full bg-primary/10 items-center justify-center">
+                  <Trophy size={24} color={colors.primary} />
+                </View>
+                <View className="items-center space-y-1">
+                  <Text className="text-2xl font-bold text-foreground">12</Text>
+                  <Text className="text-xs text-muted-foreground text-center">
+                    Workouts
+                  </Text>
+                </View>
+              </CardContent>
+            </Card>
+          </View>
         </View>
 
         {/* Quick Start Section */}
-        <View className="space-y-3">
+        <View className="space-y-4">
           <Text className="text-xl font-semibold text-foreground">
-            Quick Start
+            Today's Plan
           </Text>
 
-          <Card className="bg-blue-600 p-6 rounded-2xl">
-            <CardContent className="flex-row items-center justify-between p-0">
-              <View className="space-y-1">
-                <Text className="text-lg font-semibold text-white">
-                  Today's Workout
-                </Text>
-                <Text className="text-blue-100">Upper Body • 30 min</Text>
+          <Card className="bg-primary border-0 shadow-lg">
+            <CardContent className="p-6">
+              <View className="flex-row items-center justify-between">
+                <View className="flex-1 space-y-2">
+                  <View className="flex-row items-center space-x-2">
+                    <Calendar size={16} className="text-primary-foreground" />
+                    <Text className="text-sm text-primary-foreground/80">
+                      March 15, 2024
+                    </Text>
+                  </View>
+                  <Text className="text-xl font-bold text-primary-foreground">
+                    Upper Body Strength
+                  </Text>
+                  <Text className="text-primary-foreground/80">
+                    6 exercises • 30-45 min
+                  </Text>
+                </View>
+                <Button
+                  size="lg"
+                  className="bg-primary-foreground/20 hover:bg-primary-foreground/30 rounded-full w-14 h-14 items-center justify-center"
+                  onPress={() => router.push("/(tabs)/workout-plans")}
+                >
+                  <Play size={24} className="text-primary-foreground ml-1" />
+                </Button>
               </View>
-              <Button
-                size="lg"
-                className="bg-white/20 hover:bg-white/30 rounded-full w-12 h-12"
-                onPress={() => router.push("/(tabs)/workout-plans")}
-              >
-                <Play size={20} className="text-white ml-1" />
-              </Button>
             </CardContent>
           </Card>
         </View>
 
+        {/* Quick Actions */}
+        <View className="space-y-4">
+          <Text className="text-xl font-semibold text-foreground">
+            Quick Actions
+          </Text>
+
+          <View className="flex-row space-x-4">
+            <Button
+              variant="outline"
+              className="flex-1"
+              onPress={() => router.push("/(tabs)/workout-plans")}
+            >
+              <Text className="text-foreground">Browse Plans</Text>
+            </Button>
+            <Button variant="outline" className="flex-1">
+              <Text className="text-foreground">Free Workout</Text>
+            </Button>
+          </View>
+        </View>
+
         {/* Recent Activity Section */}
-        <View className="space-y-3">
+        <View className="space-y-4">
           <Text className="text-xl font-semibold text-foreground">
             Recent Activity
           </Text>
 
-          <View className="space-y-3">
-            <View className="flex-row items-center space-x-3">
-              <View className="w-2 h-2 rounded-full bg-blue-500" />
-              <View className="flex-1">
-                <Text className="text-base font-medium text-foreground">
-                  Upper Body Workout
-                </Text>
-                <Text className="text-sm text-muted-foreground">
-                  2 hours ago • 35 min
-                </Text>
+          <Card className="bg-card border-border">
+            <CardContent className="p-4 space-y-4">
+              <View className="flex-row items-start space-x-4">
+                <View className="w-3 h-3 rounded-full bg-primary mt-2" />
+                <View className="flex-1 space-y-1">
+                  <Text className="text-base font-semibold text-foreground">
+                    Upper Body Workout
+                  </Text>
+                  <Text className="text-sm text-muted-foreground">
+                    2 hours ago • 35 minutes • 6 exercises completed
+                  </Text>
+                </View>
               </View>
-            </View>
 
-            <View className="flex-row items-center space-x-3">
-              <View className="w-2 h-2 rounded-full bg-blue-500" />
-              <View className="flex-1">
-                <Text className="text-base font-medium text-foreground">
-                  Lower Body Workout
-                </Text>
-                <Text className="text-sm text-muted-foreground">
-                  Yesterday • 40 min
-                </Text>
+              <View className="flex-row items-start space-x-4">
+                <View className="w-3 h-3 rounded-full bg-muted mt-2" />
+                <View className="flex-1 space-y-1">
+                  <Text className="text-base font-semibold text-foreground">
+                    Lower Body Strength
+                  </Text>
+                  <Text className="text-sm text-muted-foreground">
+                    Yesterday • 40 minutes • 8 exercises completed
+                  </Text>
+                </View>
               </View>
-            </View>
-          </View>
+
+              <View className="flex-row items-start space-x-4">
+                <View className="w-3 h-3 rounded-full bg-muted mt-2" />
+                <View className="flex-1 space-y-1">
+                  <Text className="text-base font-semibold text-foreground">
+                    Cardio Session
+                  </Text>
+                  <Text className="text-sm text-muted-foreground">
+                    2 days ago • 25 minutes • HIIT workout
+                  </Text>
+                </View>
+              </View>
+            </CardContent>
+          </Card>
         </View>
+
+        {/* Bottom Spacing */}
+        <View className="h-4" />
       </View>
     </ScrollView>
   );
