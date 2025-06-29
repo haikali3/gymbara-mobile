@@ -18,8 +18,8 @@ export default function WorkoutScreen() {
   const { colors } = useTheme();
 
   return (
-    <ScrollView className="flex-1 bg-background">
-      <View className="p-6 space-y-8">
+    <ScrollView className="flex-1 bg-background/30">
+      <View className="p-6 space-y-8 ">
         {/* Welcome Header */}
         <View className="space-y-2">
           <Text className="text-3xl font-bold text-foreground">
