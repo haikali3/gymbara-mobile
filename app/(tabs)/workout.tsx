@@ -109,7 +109,7 @@ export default function WorkoutScreen() {
                 <Button
                   size="lg"
                   className="bg-primary-foreground/20 hover:bg-primary-foreground/30 rounded-full w-16 h-16 items-center justify-center"
-                  onPress={() => router.push("/(tabs)/workout-plans")}
+                  onPress={() => router.push("/workout/plans")}
                 >
                   <Play
                     size={28}
@@ -132,7 +132,7 @@ export default function WorkoutScreen() {
             <Button
               variant="outline"
               className="flex-1 py-4"
-              onPress={() => router.push("/(tabs)/workout-plans")}
+              onPress={() => router.push("/workout/plans")}
             >
               <Text className="text-foreground text-base font-medium">
                 Browse Plans
