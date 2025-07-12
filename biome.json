@@ -8,5 +8,8 @@
 	},
 	"assist": {
 		"enabled": true
+	},
+	"files": {
+		"includes": ["**", "!.expo/**"]
 	}
 }
