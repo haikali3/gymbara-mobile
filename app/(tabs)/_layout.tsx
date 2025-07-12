@@ -40,13 +40,6 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="workout-plans"
-        options={{
-          title: "Workout Plans",
-          href: null, // Hide from tab bar
-        }}
-      />
-      <Tabs.Screen
         name="tab-two"
         options={{
           title: "Profile",
