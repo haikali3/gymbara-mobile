@@ -1,10 +1,9 @@
 import { useTheme } from "@react-navigation/native";
 import { router } from "expo-router";
 import { Calendar, Clock, Play, Target, Trophy } from "lucide-react-native";
-import * as React from "react";
 import { ScrollView, View } from "react-native";
 import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+import { Card, CardContent } from "~/components/ui/card";
 import { Text } from "~/components/ui/text";
 
 export default function WorkoutScreen() {

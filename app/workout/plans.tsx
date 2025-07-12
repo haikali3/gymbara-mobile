@@ -1,5 +1,4 @@
 import { Calendar, ChevronRight, Clock, Users } from "lucide-react-native";
-import * as React from "react";
 import { ScrollView, View } from "react-native";
 import { Card, CardContent } from "~/components/ui/card";
 import { Text } from "~/components/ui/text";
