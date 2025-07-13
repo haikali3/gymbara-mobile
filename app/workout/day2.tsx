@@ -152,7 +152,7 @@ export default function Day2WorkoutScreen() {
 						Exercise List
 					</Text>
 					{day2Exercises.map((exercise, index) => (
-						<Card key={index} className="mb-4">
+						<Card key={exercise.name} className="mb-4">
 							<CardContent className="p-4">
 								<Text className="text-lg font-semibold text-foreground mb-2">
 									{index + 1}. {exercise.name}

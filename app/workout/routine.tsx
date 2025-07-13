@@ -386,33 +386,36 @@ export default function WorkoutRoutineScreen() {
 						<View className="mb-4">
 							<Text className="text-sm font-medium mb-2">Set History</Text>
 							<View className="flex-row flex-wrap gap-2">
-								{Array.from({ length: totalSets }, (_, index) => (
-									<View
-										key={index}
-										className={`px-3 py-1 rounded-full ${
-											completedSets[currentExercise][index]
-												? "bg-green-100 border-green-300"
-												: index === currentSet
-													? "bg-primary/20 border-primary"
-													: "bg-muted border-muted"
-										}`}
-									>
-										<Text
-											className={`text-sm ${
+								{Array.from({ length: totalSets }, (_, index) => {
+									const setNumber = index + 1;
+									return (
+										<View
+											key={`set-history-${setNumber}`}
+											className={`px-3 py-1 rounded-full ${
 												completedSets[currentExercise][index]
-													? "text-green-700"
+													? "bg-green-100 border-green-300"
 													: index === currentSet
-														? "text-primary"
-														: "text-muted-foreground"
+														? "bg-primary/20 border-primary"
+														: "bg-muted border-muted"
 											}`}
 										>
-											Set {index + 1}
-											{completedSets[currentExercise][index] && (
-												<Check size={12} className="ml-1" />
-											)}
-										</Text>
-									</View>
-								))}
+											<Text
+												className={`text-sm ${
+													completedSets[currentExercise][index]
+														? "text-green-700"
+														: index === currentSet
+															? "text-primary"
+															: "text-muted-foreground"
+												}`}
+											>
+												Set {setNumber}
+												{completedSets[currentExercise][index] && (
+													<Check size={12} className="ml-1" />
+												)}
+											</Text>
+										</View>
+									);
+								})}
 							</View>
 						</View>
 
@@ -436,7 +439,7 @@ export default function WorkoutRoutineScreen() {
 					<CardContent>
 						{workout.exercises.map((exercise, index) => (
 							<View
-								key={index}
+								key={exercise.name}
 								className={`flex-row items-center justify-between py-2 px-3 rounded-lg mb-2 ${
 									index === currentExercise ? "bg-primary/10" : "bg-muted/50"
 								}`}
@@ -458,7 +461,7 @@ export default function WorkoutRoutineScreen() {
 								<View className="flex-row gap-1">
 									{Array.from({ length: exercise.sets }, (_, setIndex) => (
 										<View
-											key={setIndex}
+											key={`${exercise.name}-set-${setIndex}`}
 											className={`w-3 h-3 rounded-full ${
 												completedSets[index][setIndex]
 													? "bg-green-500"
