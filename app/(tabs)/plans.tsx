@@ -1,6 +1,7 @@
 import { useTheme } from "@react-navigation/native";
+import { router } from "expo-router";
 import { ChevronRight, Clock } from "lucide-react-native";
-import { ScrollView, View } from "react-native";
+import { Pressable, ScrollView, View } from "react-native";
 import { Card, CardContent } from "~/components/ui/card";
 import { Text } from "~/components/ui/text";
 
@@ -46,7 +47,10 @@ export default function WorkoutPlansScreen() {
 
 						{/* Workout Days */}
 						<View className="space-y-3 mt-4">
-							<View className="flex-row items-center space-x-3">
+							<Pressable
+								onPress={() => router.push("/workout/day1")}
+								className="flex-row items-center space-x-3 active:opacity-75"
+							>
 								<View className="w-8 h-8 rounded-full bg-primary-foreground/20 items-center justify-center">
 									<Text className="text-primary-foreground font-semibold">
 										1
@@ -54,15 +58,19 @@ export default function WorkoutPlansScreen() {
 								</View>
 								<View className="flex-1 pl-4">
 									<Text className="text-primary-foreground font-medium">
-										Upper Body
+										Mixed Push/Legs Focus
 									</Text>
 									<Text className="text-primary-foreground/80 text-sm">
-										Push + Pull
+										8 exercises • 45-60 min
 									</Text>
 								</View>
-							</View>
+								<ChevronRight size={16} color="rgba(255,255,255,0.7)" />
+							</Pressable>
 
-							<View className="flex-row items-center space-x-3">
+							<Pressable
+								onPress={() => router.push("/workout/day2")}
+								className="flex-row items-center space-x-3 active:opacity-75"
+							>
 								<View className="w-8 h-8 rounded-full bg-primary-foreground/20 items-center justify-center">
 									<Text className="text-primary-foreground font-semibold">
 										2
@@ -70,15 +78,19 @@ export default function WorkoutPlansScreen() {
 								</View>
 								<View className="flex-1 pl-4">
 									<Text className="text-primary-foreground font-medium">
-										Lower Body
+										Pull/Push Upper Focus
 									</Text>
 									<Text className="text-primary-foreground/80 text-sm">
-										Legs + Glutes
+										7 exercises • 40-55 min
 									</Text>
 								</View>
-							</View>
+								<ChevronRight size={16} color="rgba(255,255,255,0.7)" />
+							</Pressable>
 
-							<View className="flex-row items-center space-x-3">
+							<Pressable
+								onPress={() => router.push("/workout/day3")}
+								className="flex-row items-center space-x-3 active:opacity-75"
+							>
 								<View className="w-8 h-8 rounded-full bg-primary-foreground/20 items-center justify-center">
 									<Text className="text-primary-foreground font-semibold">
 										3
@@ -86,13 +98,14 @@ export default function WorkoutPlansScreen() {
 								</View>
 								<View className="flex-1 pl-4">
 									<Text className="text-primary-foreground font-medium">
-										Full Body
+										Legs Focus
 									</Text>
 									<Text className="text-primary-foreground/80 text-sm">
-										Complete Workout
+										5 exercises • 30-45 min
 									</Text>
 								</View>
-							</View>
+								<ChevronRight size={16} color="rgba(255,255,255,0.7)" />
+							</Pressable>
 						</View>
 					</CardContent>
 				</Card>
