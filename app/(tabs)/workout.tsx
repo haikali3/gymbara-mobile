@@ -6,6 +6,11 @@ import { Button } from "~/components/ui/button";
 import { Card, CardContent } from "~/components/ui/card";
 import { Text } from "~/components/ui/text";
 
+/**
+ * Displays the workout dashboard screen with progress stats, today's workout plan, quick actions, and recent activity.
+ *
+ * Presents a scrollable layout summarizing the user's workout streak, total minutes, and completed workouts, along with navigation options and recent workout history.
+ */
 export default function WorkoutScreen() {
 	const { colors } = useTheme();
 

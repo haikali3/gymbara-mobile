@@ -3,6 +3,13 @@ import { Tabs } from "expo-router";
 import { Dumbbell, Home, User } from "lucide-react-native";
 import { ThemeToggle } from "~/components/ThemeToggle";
 
+/**
+ * Renders the bottom tab navigation layout for the app, configuring tab screens for Home, Workout, Workout Plans (hidden), and Profile.
+ *
+ * The navigation bar uses themed colors and icons, and includes a theme toggle in the header.
+ *
+ * @returns The configured bottom tab navigation component.
+ */
 export default function TabsLayout() {
 	const { colors } = useTheme();
 
