@@ -1,0 +1,27 @@
+name: Lint & Format
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    # The 'types' field specifies which pull request events will trigger this workflow:
+    # - 'opened': when a new pull request is created
+    # - 'synchronize': when commits are pushed to an existing pull request (e.g., after pushing new changes)
+    # - 'reopened': when a previously closed pull request is reopened
+    types: [opened, synchronize, reopened]
+
+jobs:
+  ts-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: latest
+      
+      - name: Run Biome
+        run: biome ci .
