@@ -8,7 +8,7 @@ export default function WorkoutPlansScreen() {
 	const { colors } = useTheme();
 
 	return (
-		<ScrollView className="flex-1 bg-background/30">
+		<ScrollView className="flex-1 bg-secondary/30 ">
 			<View className="px-6 py-3">
 				<View className="pt-2 mb-4">
 					<Text className="text-3xl font-bold text-foreground">

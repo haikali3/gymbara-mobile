@@ -10,7 +10,7 @@ export default function WorkoutScreen() {
 	const { colors } = useTheme();
 
 	return (
-		<ScrollView className="flex-1 bg-background/30">
+		<ScrollView className="flex-1 bg-secondary/30">
 			<View className="px-6 py-3">
 				{/* Welcome Header */}
 				<View className="pt-2 mb-4">
