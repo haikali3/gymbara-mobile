@@ -71,3 +71,6 @@
 - Implement proper error handling and loading states
 - Write meaningful commit messages
 - Test components and functions where applicable
+
+## Styling 
+- Use text-foreground to standardize text styling

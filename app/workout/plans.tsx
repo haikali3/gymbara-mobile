@@ -30,10 +30,10 @@ export default function WorkoutPlansScreen() {
 									Upper / Lower / Full Body
 								</Text>
 							</View>
-							<ChevronRight size={24} className="text-primary-foreground" />
+							<ChevronRight size={24} color={colors.primary} />
 						</View>
 
-						<View className="flex-row items-center mb-3">
+						<View className="flex-row items-center mb-3 pt-2">
 							<Clock
 								size={18}
 								className="text-primary-foreground/80 mr-2"
