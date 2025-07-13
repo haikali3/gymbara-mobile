@@ -3,7 +3,7 @@
 ## Tech Stack
 - **Framework**: Expo (React Native)
 - **UI Components**: React Native Reusables
-- **Icons**: Phosphor Icons (https://phosphoricons.com/)
+- **Icons**: Lucide Icons (https://lucide.dev/guide/packages/lucide-react-native)
 - **Platform**: React Native Mobile
 - **Package Manager**: pnpm
 - **Language**: TypeScript
