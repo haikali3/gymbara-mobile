@@ -7,6 +7,7 @@ export default function TabsLayout() {
 	const { colors } = useTheme();
 
 	return (
+		//Bottom Tab Navigation
 		<Tabs
 			screenOptions={{
 				tabBarShowLabel: false,
@@ -37,6 +38,13 @@ export default function TabsLayout() {
 							size={24}
 						/>
 					),
+				}}
+			/>
+			<Tabs.Screen
+				name="plans"
+				options={{
+					href: null, // Hide from bottom navigation bar
+					title: "Workout Plans",
 				}}
 			/>
 			<Tabs.Screen
