@@ -17,20 +17,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
         with:
-          node-version: 20
-          cache: "pnpm"
-          cache-dependency-path: "pnpm-lock.yaml"
-
-      - name: Install dependencies
-        # The --frozen-lockfile flag ensures that pnpm will not modify the lockfile during install.
-        # This guarantees that the dependencies installed exactly match those specified in pnpm-lock.yaml,
-        # helping to prevent unexpected changes or mismatches in CI environments.
-        run: pnpm install --frozen-lockfile
-      - name: Run Biome Lint
-        run: pnpm lint
+          version: latest
+      
+      - name: Run Biome
+        run: biome ci .
