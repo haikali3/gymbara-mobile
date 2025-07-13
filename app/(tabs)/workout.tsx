@@ -113,7 +113,7 @@ export default function WorkoutScreen() {
 								<Button
 									size="lg"
 									className="bg-primary-foreground/20 hover:bg-primary-foreground/30 rounded-full w-16 h-16 items-center justify-center"
-									onPress={() => router.push("/(tabs)/plans")}
+									onPress={() => router.push("/workout/day1")}
 								>
 									<Play
 										size={28}
